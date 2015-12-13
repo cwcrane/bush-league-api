@@ -1,7 +1,7 @@
 #Bush League
 
 This is the back end repo for Bush League. 
-The front end repo is located here: https://github.com/cwcrane/Bush-league-front -automatic!
+The front end repo is located here: https://github.com/cwcrane/Bush-league-front
 
 Bush league is an app for recreational sports teams to manage their league, team and players. It was designed first for hockey leagues, but the architecture of the app will allow for expansion into other sports down the line. Recreational sports need an app that will help with scheduling, stat tracking, payments to refs and team leaders, and just overall communication. 
 
@@ -40,7 +40,6 @@ Bush league is an app for recreational sports teams to manage their league, team
 
 ##Database Structure + Wireframe
 ![Database structure + Wireframe](wireframe.png)
-Format: ![Alt Text](url)
 
 Corrections to attached data model image:
 1. Team has many leagues. Many-to-many. Season is the join table.
