@@ -1,64 +1,46 @@
+#Bush League
 
-# User authentication
+This is the back end repo for Bush League. 
 
-## Register
+Bush league is an app for recreational sports teams to manage their league, team and players. It was designed first for hockey leagues, but the architecture of the app will allow for expansion into other sports down the line. Recreational sports need an app that will help with scheduling, stat tracking, payments to refs and team leaders, and just overall communication. 
 
-```
-curl --include --request POST --header "Content-Type: application/json" -d '{
-  "credentials": {
-    "email": "an@example.email",
-    "password": "an example password",
-    "password_confirmation": "an example password"
-  }
-}' http://localhost:3000/register
-```
+##User Stories:
 
-## Login
+- As a user, I can create a league (you are admin if you do this)
+- As a user, I can request or invite to join league
+- As a user, I can create team (you are admin if you do this)
+- request or invite to join team
+- login/register
+- As league admin, I can set up schedule: create games between any teams
+- As team admin, I can report game results: Update game with goals for each team + player stats
+- As a Player, I can view standings: each team’s wins + losses.
+- As a player, I can view recent games.
+- As a player, I can view upcoming games.
+- As a player, I can view schedule.
+- As a player, I can view a player's stats.
 
-```
-curl --request POST --header "Content-Type: application/json" -d '{
-  "credentials": {
-    "email": "an@example.email",
-    "password": "an example password"
-  }
-}' http://localhost:3000/login
-```
+*Stretch features:*
 
-## Logout
+- payment system
+- facebook login
+- League finder w/ map
 
-```
-curl --request DELETE --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/logout/1
-```
+##Database Tables:
 
-# Users
+- Sports- hockey
+- locations
+- Leagues
+- teams
+- seasons (join table)
+- games
+- players/users
+- roster (join table)
+- player stats
 
-## List
+##Database Structure + Wireframe
+![Database structure + Wireframe](wireframe.png)
+Format: ![Alt Text](url)
 
-```
-curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/users
-```
-
-# Books
-
-## List
-
-```
-curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/books
-```
-
-**OR**
-
-```
-curl http://localhost:3000/books
-```
-
-## Create
-
-```
-curl --request POST --header "Authorization: Token token=be249dc0231396806f24c953cafae03a" --header "Content-Type: application/json" -d '{
-  "book": {
-    "title":"The Hold",
-    "isbn":"abc123def456"
-  }
-}'  http://localhost:3000/books
-```
+Corrections to attached data model image:
+1. Team has many leagues. Many-to-many. Season is the join table.
+2. Stats table: game has many stats. stats has one game.
