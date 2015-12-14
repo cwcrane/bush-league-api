@@ -1,4 +1,4 @@
-class SeasonController < OpenReadController
+class SeasonsController < OpenReadController
 	before_action :set_season, only: [:update, :destroy]
 
   # GET /seasons

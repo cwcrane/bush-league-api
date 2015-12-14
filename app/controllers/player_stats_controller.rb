@@ -1,4 +1,4 @@
-class PlayerStatController < OpenReadController
+class PlayerStatsController < OpenReadController
 	before_action :set_player_stat, only: [:update, :destroy]
 
   # GET /player_stats
@@ -47,7 +47,7 @@ class PlayerStatController < OpenReadController
   end
 
   def player_stat_params
-    params.require(:player_stat).permit(:game, :user, :team, :season, :goals, :assists, :penalty_mins
+    params.require(:player_stat).permit(:game, :user, :team, :season, :goals, :assists, :penalty_mins)
   end
 
   private :set_player_stat, :player_stat_params

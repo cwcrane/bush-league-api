@@ -1,4 +1,4 @@
-class TeamController < OpenReadController
+class TeamsController < OpenReadController
 #before_action :set_book, only: [:update, :destroy]
 
   # GET /teams

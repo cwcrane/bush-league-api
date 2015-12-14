@@ -1,4 +1,4 @@
-class RosterController < OpenReadController
+class RostersController < OpenReadController
 	before_action :set_roster, only: [:update, :destroy]
 
   # GET /rosters
