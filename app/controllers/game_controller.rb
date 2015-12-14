@@ -47,7 +47,7 @@ class GameController < OpenReadController
   end
 
   def game_params
-    params.require(:game).permit(:home_team, :away_team, :home_goals, :away_goals, :date, :time, :season)
+    params.require(:game).permit(:home_team, :away_team, :home_goals, :away_goals, :date, :time)
   end
 
   private :set_game, :game_params

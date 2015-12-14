@@ -1,7 +1,6 @@
 class CreateGames < ActiveRecord::Migration
   def change
     create_table :games do |t|
-    	t.references :season, index: true, foreign_key: true #commissioner
 	    t.date :date
 	    t.time :time
 	    t.references :home_team#, index: true, foreign_key: true

@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 20151213230458) do
   enable_extension "plpgsql"
 
   create_table "games", force: :cascade do |t|
-    t.integer  "season_id"
     t.date     "date"
     t.time     "time"
     t.integer  "home_team_id"
@@ -27,8 +26,6 @@ ActiveRecord::Schema.define(version: 20151213230458) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
-
-  add_index "games", ["season_id"], name: "index_games_on_season_id", using: :btree
 
   create_table "leagues", force: :cascade do |t|
     t.string   "name",         null: false
@@ -43,6 +40,7 @@ ActiveRecord::Schema.define(version: 20151213230458) do
   add_index "leagues", ["user_id"], name: "index_leagues_on_user_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
+    t.string   "name"
     t.string   "street"
     t.string   "city"
     t.string   "state"
@@ -111,7 +109,6 @@ ActiveRecord::Schema.define(version: 20151213230458) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["token"], name: "index_users_on_token", unique: true, using: :btree
 
-  add_foreign_key "games", "seasons"
   add_foreign_key "leagues", "locations"
   add_foreign_key "leagues", "users"
   add_foreign_key "player_stats", "games"
