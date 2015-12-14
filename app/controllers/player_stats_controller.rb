@@ -17,7 +17,7 @@ class PlayerStatsController < OpenReadController
 
   # POST /player_stats
   def create
-    @player_stat = PlayerStat.build(player_stat_params)
+    @player_stat = PlayerStat.create(player_stat_params)
 
     if @player_stat.save
       render json: @player_stat, status: :created, player_stat: @player_stat
@@ -47,7 +47,7 @@ class PlayerStatsController < OpenReadController
   end
 
   def player_stat_params
-    params.require(:player_stat).permit(:game, :user, :team, :season, :goals, :assists, :penalty_mins)
+    params.require(:player_stat).permit(:game_id, :user_id, :team_id, :season_id, :goals, :assists, :penalty_mins)
   end
 
   private :set_player_stat, :player_stat_params

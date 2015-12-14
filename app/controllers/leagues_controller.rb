@@ -18,7 +18,7 @@ class LeaguesController < OpenReadController
 
   # POST /leagues
   def create
-    @league = League.build(league_params)
+    @league = current_user.leagues.create(league_params)
 
     if @league.save
       render json: @league, status: :created, league: @league
@@ -48,7 +48,7 @@ class LeaguesController < OpenReadController
   end
 
   def league_params
-    params.require(:league).permit(:name, :user, :location, :date_created)
+    params.require(:league).permit(:name, :location_id, :date_created)
   end
 
   private :set_league, :league_params

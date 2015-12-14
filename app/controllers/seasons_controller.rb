@@ -17,7 +17,8 @@ class SeasonsController < OpenReadController
 
   # POST /seasons
   def create
-    @season = current_user.seasons.build(season_params)
+    @season = Season.create(season_params)
+    #current_user.seasons.build(season_params) ...and remove user from season_params
 
     if @season.save
       render json: @season, status: :created, season: @season
@@ -47,7 +48,7 @@ class SeasonsController < OpenReadController
   end
 
   def season_params
-    params.require(:season).permit(:team, :league, :start_date, :end_date)
+    params.require(:season).permit(:team_id, :league_id, :start_date, :end_date)
   end
 
   private :set_season, :season_params

@@ -17,7 +17,7 @@ class RostersController < OpenReadController
 
   # POST /rosters
   def create
-    @roster = current_user.rosters.build(roster_params)
+    @roster = Roster.create(roster_params)
 
     if @roster.save
       render json: @roster, status: :created, roster: @roster
@@ -43,11 +43,11 @@ class RostersController < OpenReadController
   end
 
   def set_roster
-    @roster = current_user.rosters.find(params[:id])
+    @roster = Roster.find(params[:id])
   end
 
   def roster_params
-    params.require(:roster).permit(:team, :user)
+    params.require(:roster).permit(:team_id, :user_id)
   end
 
   private :set_roster, :roster_params
