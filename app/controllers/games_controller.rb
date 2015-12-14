@@ -17,7 +17,7 @@ class GamesController < OpenReadController
 
   # POST /games
   def create
-    @game = Games.build(game_params)
+    @game = Game.create(game_params)
 
     if @game.save
       render json: @game, status: :created, game: @game
@@ -47,7 +47,7 @@ class GamesController < OpenReadController
   end
 
   def game_params
-    params.require(:game).permit(:home_team, :away_team, :home_goals, :away_goals, :date, :time)
+    params.require(:game).permit(:home_team_id, :away_team_id, :home_goals, :away_goals, :date, :time)
   end
 
   private :set_game, :game_params
