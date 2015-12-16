@@ -38,7 +38,7 @@ module Project2Api
         origins '*'
         resource '*',
                  headers: :any,
-                 methods: [:options, :get,
+                 methods: [:options, :get, :put,
                            :post, :patch, :delete]
       end
     end

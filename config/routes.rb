@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   post '/users' => 'auth#login'
   delete '/logout/:id' => 'auth#logout'
 
+  put '/games/:id' => 'games#update'
+
   resources :users, except: [:new, :edit]
   resources :locations, except: [:new, :edit]
   resources :leagues, except: [:new, :edit]

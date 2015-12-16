@@ -1,6 +1,7 @@
-#
-class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
+class UsersController < OpenReadController#< ApplicationController
+  #before_action :set_user, only: [:show, :update, :destroy]
+
+  #re-enable the above when ready to do authentication. 
 
   # GET /users
   def index
