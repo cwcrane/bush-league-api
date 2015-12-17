@@ -7,13 +7,15 @@ class ApplicationController < ActionController::API
   end
 
   # Use Token Authentication
+
   include ActionController::HttpAuthentication::Token::ControllerMethods
-  before_action :authenticate
+  # before_action :authenticate
   def authenticate
-    @current_user = authenticate_or_request_with_http_token do |token, _opts|
-      User.find_by token: token
-    end
+  #   @current_user = authenticate_or_request_with_http_token do |token, _opts|
+  #     User.find_by token: token
+  #   end
   end
+
   # Controllers can use this to authorize actions
   attr_reader :current_user
 

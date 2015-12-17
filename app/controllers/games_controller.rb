@@ -20,7 +20,7 @@ class GamesController < OpenReadController
     @game = Game.create(game_params)
 
     if @game.save
-      render json: @game, status: :created, game: @game
+      render json: @game, status: :created, root: true #, game: @game
     else
       render json: @game.errors, status: :unprocessable_entity
     end

@@ -17,7 +17,7 @@ class TeamsController < OpenReadController
 
   # POST /teams
   def create
-    @team = current_user.teams.build(team_params)
+    @team = Team.create(team_params) #removed current_user.
 
     if @team.save
       render json: @team, status: :created, team: @team

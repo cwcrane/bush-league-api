@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   post '/users' => 'auth#login'
   delete '/logout/:id' => 'auth#logout'
 
+  put '/games' => 'games#update'
   put '/games/:id' => 'games#update'
+  put '/teams/:id' => 'teams#update'
+  put '/teams/' => 'teams#update'
 
   resources :users, except: [:new, :edit]
   resources :locations, except: [:new, :edit]

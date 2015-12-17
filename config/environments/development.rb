@@ -26,11 +26,11 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-#Code CWC added 12-14-2015
-    # config.middleware.use Rack::Cors do
-    #   allow do
-    #     origins '*'
-    #     resource '*', headers: :any, methods: [:get, :post, :put, :delete, :options]
-    #   end
-    # end
+  #Code CWC added 12-14-2015
+  config.middleware.use Rack::Cors do
+    allow do
+      origins '*'
+      resource '*', headers: :any, methods: [:get, :post, :put, :delete, :options]
+    end
+  end
 end
