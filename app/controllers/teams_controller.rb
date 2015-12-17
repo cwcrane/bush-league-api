@@ -43,11 +43,11 @@ class TeamsController < OpenReadController
   end
 
   def set_team
-    @team = current_user.teams.find(params[:id])
+    @team = Team.find(params[:id]) #removed current_user. so that this wil work for unauthorized requests.
   end
 
   def team_params
-    params.require(:team).permit(:name, :date_created)
+    params.require(:team).permit(:name, :date_created, :user_id)
   end
 
   private :set_team, :team_params
