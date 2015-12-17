@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   resources :seasons, except: [:new, :edit]
   resources :rosters, except: [:new, :edit]
   resources :games, except: [:new, :edit]
-  resources :player_stats, except: [:new, :edit]
+  resources :stats, except: [:new, :edit]
   #resources :books, except: [:new, :edit]
 end

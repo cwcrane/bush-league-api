@@ -1,4 +1,4 @@
-class PlayerStat < ActiveRecord::Base
+class Stat < ActiveRecord::Base
 	belongs_to :games
 	belongs_to :user
 	has_one :team, through: :games

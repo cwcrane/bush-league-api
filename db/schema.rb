@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151213230458) do
+ActiveRecord::Schema.define(version: 20151217143752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,23 +49,6 @@ ActiveRecord::Schema.define(version: 20151213230458) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "player_stats", force: :cascade do |t|
-    t.integer  "game_id"
-    t.integer  "user_id"
-    t.integer  "team_id"
-    t.integer  "season_id"
-    t.integer  "goals"
-    t.integer  "assists"
-    t.decimal  "penalty_mins"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "player_stats", ["game_id"], name: "index_player_stats_on_game_id", using: :btree
-  add_index "player_stats", ["season_id"], name: "index_player_stats_on_season_id", using: :btree
-  add_index "player_stats", ["team_id"], name: "index_player_stats_on_team_id", using: :btree
-  add_index "player_stats", ["user_id"], name: "index_player_stats_on_user_id", using: :btree
-
   create_table "rosters", force: :cascade do |t|
     t.integer "team_id"
     t.integer "user_id"
@@ -85,6 +68,23 @@ ActiveRecord::Schema.define(version: 20151213230458) do
 
   add_index "seasons", ["league_id"], name: "index_seasons_on_league_id", using: :btree
   add_index "seasons", ["team_id"], name: "index_seasons_on_team_id", using: :btree
+
+  create_table "stats", force: :cascade do |t|
+    t.integer  "game_id"
+    t.integer  "user_id"
+    t.integer  "team_id"
+    t.integer  "season_id"
+    t.integer  "goals"
+    t.integer  "assists"
+    t.decimal  "penalty_mins"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "stats", ["game_id"], name: "index_stats_on_game_id", using: :btree
+  add_index "stats", ["season_id"], name: "index_stats_on_season_id", using: :btree
+  add_index "stats", ["team_id"], name: "index_stats_on_team_id", using: :btree
+  add_index "stats", ["user_id"], name: "index_stats_on_user_id", using: :btree
 
   create_table "teams", force: :cascade do |t|
     t.string   "name",         null: false
@@ -111,13 +111,13 @@ ActiveRecord::Schema.define(version: 20151213230458) do
 
   add_foreign_key "leagues", "locations"
   add_foreign_key "leagues", "users"
-  add_foreign_key "player_stats", "games"
-  add_foreign_key "player_stats", "seasons"
-  add_foreign_key "player_stats", "teams"
-  add_foreign_key "player_stats", "users"
   add_foreign_key "rosters", "teams"
   add_foreign_key "rosters", "users"
   add_foreign_key "seasons", "leagues"
   add_foreign_key "seasons", "teams"
+  add_foreign_key "stats", "games"
+  add_foreign_key "stats", "seasons"
+  add_foreign_key "stats", "teams"
+  add_foreign_key "stats", "users"
   add_foreign_key "teams", "users"
 end

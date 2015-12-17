@@ -1,6 +1,6 @@
-class CreatePlayerStats < ActiveRecord::Migration
+class CreateStats < ActiveRecord::Migration
   def change
-    create_table :player_stats do |t|
+    create_table :stats do |t|
     	t.references :game, index: true, foreign_key: true
 	    t.references :user, index: true, foreign_key: true
 	    t.references :team, index: true, foreign_key: true

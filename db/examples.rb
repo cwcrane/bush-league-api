@@ -2,7 +2,7 @@ Season.delete_all
 League.delete_all
 Location.delete_all
 Roster.delete_all
-PlayerStat.delete_all
+Stat.delete_all
 Game.delete_all
 Team.delete_all
 User.delete_all
@@ -61,7 +61,7 @@ g5 = Game.create!(date: "2015-12-01", time: "7:40", home_team: t1, away_team: t4
 g6 = Game.create!(date: "2015-12-02", time: "7:20", home_team: t4, away_team: t3, home_goals: 3, away_goals: 8)
 g6 = Game.create!(date: "2016-01-03", time: "9:00", home_team: t1, away_team: t3)
 
-pstat1 = PlayerStat.create!(game_id: g1.id, user_id: u9.id, team_id: t1.id, goals: 2, assists: 3, penalty_mins: 2)
-pstat2 = PlayerStat.create!(game_id: g1.id, user_id: u8.id, team_id: t1.id, goals: 3, assists: 1, penalty_mins: 0)
-pstat1 = PlayerStat.create!(game_id: g1.id, user_id: u6.id, team_id: t3.id, goals: 5, assists: 2, penalty_mins: 2)
-pstat1 = PlayerStat.create!(game_id: g1.id, user_id: u10.id, team_id: t3.id, goals: 1, assists: 2, penalty_mins: 4)
+pstat1 = Stat.create!(game_id: g1.id, user_id: u9.id, team_id: t1.id, goals: 2, assists: 3, penalty_mins: 2)
+pstat2 = Stat.create!(game_id: g1.id, user_id: u8.id, team_id: t1.id, goals: 3, assists: 1, penalty_mins: 0)
+pstat1 = Stat.create!(game_id: g1.id, user_id: u6.id, team_id: t3.id, goals: 5, assists: 2, penalty_mins: 2)
+pstat1 = Stat.create!(game_id: g1.id, user_id: u10.id, team_id: t3.id, goals: 1, assists: 2, penalty_mins: 4)
